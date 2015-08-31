@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #404041;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    color: #2f292b;
+    background-color: #fc6;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+p {
+    font-size: 0.88rem;
+}

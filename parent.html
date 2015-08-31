@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Splinter</title>
+    <link rel="shortcut icon" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/KP_favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/Icon-60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/Icon-60@2x.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/Icon-60@3x.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/Icon-76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" type="image/png" href="https://d3u8ewz6c11pt5.cloudfront.net/static/kshare/0.22/1c2904b8e11a/img/Icon-76@2x.png"/>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<h1>SPLINTER - Parent tab</h1>
+<p>Check window.opener to determine if we came from a new tab</p>
+<button id="btn-newtab-checkparent" data-endpoint="checkparent">Open New Tab</button>
+<p>Try window.close; redirect to URL if timeout</p>
+<button id="btn-newtab-tryclose" data-endpoint="tryclose">Open New Tab</button>
+<p>Do a window.close and nothing else.</p>
+<button id="btn-newtab-forceclose" data-endpoint="forceclose">Open New Tab</button>
+<script type="text/javascript">
+    // name the parent window
+    window.name = 'kp-parent';
+
+    // this doesn't get blocked by popup blockers
+    function openNewWindow(url) {
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    }
+
+    (function() {
+        var btns = ['checkparent', 'tryclose', 'forceclose'];
+        for(var i=0; i<btns.length; i++) {
+            var btnName = btns[i];
+            var btn = document.getElementById('btn-newtab-' + btnName);
+            btn.onclick = function() {
+                var endpoint = this.dataset.endpoint;
+                openNewWindow('newtab-' + endpoint + '.html');
+            };
+            btn.title = btnName;
+        }
+    })();
+</script>
+</body>
+</html>
