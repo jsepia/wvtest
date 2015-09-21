@@ -12,6 +12,10 @@
 </head>
 <body>
 <h1>SPLINTER - Parent tab</h1>
+<p>You are <strong><span id="reading-progress">0</span>%</strong> through the sample. Click below to increase your progress.</p>
+<button id="btn-read">Read</button>
+<p>Check the reading progress after you've closed the child tab. If it got reset to 0 it means the page got reloaded.</p>
+<hr />
 <p>Check window.opener to determine if we came from a new tab</p>
 <button id="btn-newtab-checkparent" data-endpoint="checkparent">Open New Tab</button>
 <p>Try window.close; redirect to URL if timeout</p>
@@ -39,6 +43,13 @@
             };
             btn.title = btnName;
         }
+
+        document.getElementById('btn-read').onclick = function() {
+            var progressIndicator = document.getElementById('reading-progress');
+            var progress = parseInt(progressIndicator.innerHTML);
+            progress++;
+            progressIndicator.innerHTML = Math.min(progress, 100);
+        };
     })();
 </script>
 </body>

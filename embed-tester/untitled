@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KP Inline Preview Tester</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://k4w-dev.aka.amazon.com/kshare/bb/official/css/kshare.mobile.css"/>
+    <style type="text/css">
+        body {
+            font-family: "sans-serif-light", Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h3>320x480px</h3>
+    <iframe width="320" height="480" src="bookcard.html"></iframe>
+    <h3>560x270px</h3>
+    <iframe width="560" height="270" src="bookcard.html"></iframe>
+    <h3>560x438px</h3>
+    <iframe width="560" height="438" src="bookcard.html"></iframe>
+    <h3>853x400px</h3>
+    <iframe width="854" height="400" src="bookcard.html"></iframe>
+</body>
+</html>

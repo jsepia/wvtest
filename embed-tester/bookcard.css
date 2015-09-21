@@ -1,0 +1,181 @@
+#CoverPageView {
+    font-family: "sans-serif-light", Arial, sans-serif;
+    padding: 1rem;
+}
+
+#CoverPageView > .kp-book-panel-frame {
+    margin: 0;
+    padding-top: 0.9375rem;
+}
+
+#CoverPageView > .kp-book-panel-frame .kp-book-image-container {
+    background-color: transparent;
+    cursor: pointer;
+    perspective: 960px;
+    perspective-origin: right center;
+}
+
+
+/* MINIMAL BOOK CARD */
+
+@media screen and (max-width: 19.999rem),
+screen and (max-height: 15.999rem) {
+    #CoverPageView .kp-book-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-panel-image {
+        width: auto;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+
+/* COMMON STYLES FOR NON-MINIMAL BOOK CARD */
+
+@media screen and (min-width: 20rem),
+@media screen and (min-height: 16rem) {
+    #CoverPageView > .kp-book-panel-frame .kp-book-panel-image {
+        transform: rotateY(-21deg);
+        transform-origin: left center;
+        transition: transform 1.2s ease-in-out;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-image-container:hover .kp-book-panel-image {
+        transform: rotateY(-45deg);
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-image-container:before {
+        background-color: #d2d2d0;
+    }
+}
+
+
+/* LANDSCAPE BOOK CARD */
+
+@media screen and (orientation: landscape) and (min-width: 20rem) and (min-height: 16rem) {
+    #CoverPageView {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0;
+        text-align: left;
+        min-width: 320px;
+        min-height: 240px;
+    }
+
+    #CoverPageView > .kp-book-panel-frame {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        margin: 0;
+        padding-top: 0.9375rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame {
+        padding: 2rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-image-container {
+        float: left;
+        width: auto;
+        height: 100%;
+        padding: 0;
+        margin-right: 2rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-panel-image {
+        width: auto;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-image-container:before {
+        left: 0;
+        right: 0;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-book-info {
+        height: 100%;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-title {
+        text-align: left;
+        margin: 0 0 0.25rem 0;
+        flex: 0 0 auto;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-author {
+        margin: 0 0 0.75rem 0;
+        flex: 0 0 auto;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-sample-quote {
+        flex: 1 1 auto;
+        position: relative;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-sample-quote:after {
+        position: absolute;
+        content: ' ';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2rem;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%);
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-button-container {
+        height: 4rem;
+        padding-top: 1rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-primary-button {
+        text-align: left;
+        font-size: 0.875rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-primary-button:after {
+        /*content: ' ';*/
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: solid 0.5rem transparent;
+        border-right-color: #fc0;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -1rem;
+    }
+
+    #CoverPageView > .kp-book-panel-frame .kp-primary-button > span {
+        display: block;
+        font-weight: normal;
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (orientation:landscape) and (max-height: 17.999rem) {
+    #CoverPageView > .kp-book-panel-frame .kp-sample-quote {
+        visibility: hidden;
+    }
+}
