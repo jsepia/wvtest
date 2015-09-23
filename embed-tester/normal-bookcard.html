@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KP Inline Preview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="kshare.mobile.css"/>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        body,
+        .kp-bookcard-reader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .kp-bookcard-button-container,
+        .kp-bookcard-button {
+            box-sizing: border-box;
+            height: 50px;
+        }
+        .kp-bookcard-button-container {
+            position: relative;
+            font: 10px Arial;
+            background: #222;
+            flex: 0 0 auto;
+        }
+        .kp-bookcard-button {
+            display: block;
+            float: left;
+            text-align: center;
+            width: 33.33%;
+            color: #ececec;
+            padding-top:  5px;
+        }
+        .kp-bookcard-button:before {
+            display: block;
+            content: ' ';
+            width: 14px;
+            height: 14px;
+            background: #ececec;
+            margin: 5px auto;
+            opacity: .5;
+            border-radius: 50%;
+        }
+        .kp-bookcard-cover {
+            position: relative;
+            flex: 1 1 auto;
+            background: #222;
+        }
+        .kp-bookcard-cover:after {
+            display: block;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent url('B00DPM7TIG.jpg') center center no-repeat;
+            background-size: contain;
+        }
+
+        .kp-bookcard-reader {
+            background: transparent url('kp-inline-wapo-sized.png') top center no-repeat;
+            background-size: 100% auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="kp-bookcard-cover" class="kp-bookcard-cover kp-open-on-click"></div>
+    <div id="kp-bookcard-button-container" class="kp-bookcard-button-container">
+        <a class="kp-bookcard-button kp-open-on-click">PREVIEW</a>
+        <a class="kp-bookcard-button">SHARE</a>
+        <a class="kp-bookcard-button">BUY</a>
+    </div>
+    <div id="kp-bookcard-reader" class="kp-bookcard-reader" hidden></div>
+    <script type="text/javascript">
+        function goInline() {
+            document.getElementById('kp-bookcard-cover').hidden = true;
+            document.getElementById('kp-bookcard-button-container').hidden = true;
+            document.getElementById('kp-bookcard-reader').hidden = false;
+        }
+
+        var clickables = document.getElementsByClassName('kp-open-on-click');
+        for(var i=0; i<clickables.length; i++) {
+            clickables[i].onclick = goInline;
+        }
+    </script>
+</body>
+</html>
